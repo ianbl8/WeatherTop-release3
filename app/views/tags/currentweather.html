@@ -87,7 +87,7 @@
         <p><strong><span class="ui large text">Pressure</span></strong></p>
         <p>
           #{if _station.latestReading()}
-          ${_station.latestReading()?.pressure} hPa</p><br>
+          ${_station.latestReading()?.pressure} hPa<br>&nbsp;</p>
         <p>Max ${_station.maxPressure()} hPa<br>Min ${_station.minPressure()} hPa
           #{/if}
           #{else}
