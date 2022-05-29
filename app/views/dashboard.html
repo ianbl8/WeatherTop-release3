@@ -9,9 +9,7 @@
   </h1>
   #{list items:stations, as:'station'}
   <section class="ui raised segment">
-    <h2 class="ui header">
-      #{currentweather station:station/}
-    </h2>
+    #{currentweather station:station/}
     <a href="/stations/${station.id}" class="positive ui icon button"><i class="icon folder open"></i></a>
     <a href="/dashboard/deletestation/${station.id}" class="negative ui icon button"><i class="trash alternate outline icon"></i></a>
   </section>
