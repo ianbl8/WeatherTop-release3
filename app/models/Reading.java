@@ -1,21 +1,26 @@
 package models;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.OrderColumn;
 
 import play.db.jpa.Model;
 import play.Logger;
 
 import java.util.HashMap;
+import java.util.Date;
 
 @Entity
 public class Reading extends Model {
+  public Date date;
   public int code;
   public double temperature;
   public double windSpeed;
   public int windDirection;
   public int pressure;
 
-  public Reading(int code, double temperature, double windSpeed, int windDirection, int pressure) {
+  public Reading(Date date, int code, double temperature, double windSpeed, int windDirection, int pressure) {
+    this.date = date;
     this.code = code;
     this.temperature = temperature;
     this.windSpeed = windSpeed;

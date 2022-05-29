@@ -22,7 +22,7 @@ public class Accounts extends Controller {
   }
 
   public static void authenticate(String email, String password) {
-    Logger.info("Attempting to authenticate:\nEmail   :  " + email + "\nPassword: " + password);
+    Logger.info("Attempting to authenticate:\nEmail   : " + email + "\nPassword: " + password);
     Member member = Member.findByEmail(email);
     if ((member != null) && (member.checkPassword(password))) {
       Logger.info("Authentication successful");
