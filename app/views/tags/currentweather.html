@@ -1,0 +1,100 @@
+<div class="ui five column grid">
+  <div class="stretched row">
+    <div class="column">
+      <div class="ui inverted segment">
+        <div class="ui grid">
+          <div class="right aligned column">
+            <i class="big blue compass outline icon"></i>
+          </div>
+        </div>
+        <p><span class="ui large text"><strong>${_station.name}</strong></span></p>
+        <p><span class="ui medium text">Lat: ${_station.latitude.round(3)}°<br>Lon: ${_station.longitude.round(3)}°</span></p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment">
+        <div class="ui grid">
+          <div class="right aligned column">
+            #{if _station.latestReading()}
+              <i class="${_station.latestReading().getWeatherIcon()}"></i>
+            #{/if}
+            #{else}
+              <i class="big olive umbrella icon"></i><!-- used when no readings exist-->
+            #{/else}
+          </div>
+        </div>
+        <p><strong><span class="ui large text">Weather</span></strong></p>
+        <p>
+          #{if _station.latestReading()}
+            ${_station.latestReading().getWeather()}
+          #{/if}
+          #{else}
+            <em>No readings</em>
+          #{/else}
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment">
+        <div class="ui grid">
+          <div class="right aligned column">
+            <i class="big orange temperature low icon"></i>
+          </div>
+        </div>
+        <p><strong><span class="ui large text">Temperature</span></strong></p>
+        <p>
+          #{if _station.latestReading()}
+            ${_station.latestReading()?.temperature}°C<br>${_station.latestReading()?.getFahrenheit(_station.latestReading()?.temperature).round(1)}°F
+        </p>
+        <p>
+          Max ${_station.maxTemperature()}°C / ${_station.latestReading()?.getFahrenheit(_station.maxTemperature()).round(1)}°F<br>Min ${_station.minTemperature()}°C / ${_station.latestReading()?.getFahrenheit(_station.minTemperature()).round(1)}°F
+          #{/if}
+          #{else}
+          <em>No readings</em>
+          #{/else}
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment">
+        <div class="ui grid">
+          <div class="right aligned column">
+            <i class="big teal wind icon"></i>
+          </div>
+        </div>
+        <p><strong><span class="ui large text">Wind Speed</span></strong></p>
+        <p>
+          #{if _station.latestReading()}
+          ${_station.latestReading()?.getBeaufort()} bft, ${_station.latestReading()?.getDirection()}<br>Feels like
+          ${_station.latestReading()?.getWindChill()?.round(1)}°C / ${_station.latestReading()?.getFahrenheit(_station.latestReading()?.getWindChill())?.round(1)}°F
+        </p>
+        <p>
+          Max ${_station.maxWindSpeed()} km/h<br>Min ${_station.minWindSpeed()} km/h
+          #{/if}
+          #{else}
+          <em>No readings</em>
+          #{/else}
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment">
+        <div class="ui grid">
+          <div class="right aligned column">
+            <i class="big purple signal icon"></i>
+          </div>
+        </div>
+        <p><strong><span class="ui large text">Pressure</span></strong></p>
+        <p>
+          #{if _station.latestReading()}
+          ${_station.latestReading()?.pressure} hPa</p><br>
+        <p>Max ${_station.maxPressure()} hPa<br>Min ${_station.minPressure()} hPa
+          #{/if}
+          #{else}
+          <em>No readings</em>
+          #{/else}
+          </p>
+      </div>
+    </div>
+  </div>
+</div>

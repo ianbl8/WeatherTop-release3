@@ -1,0 +1,32 @@
+<table class="ui fixed table">
+  <thead>
+  <tr>
+    <th>Weather Code</th>
+    <th>Temperature (°C)</th>
+    <th>Wind Speed (km/h)</th>
+    <th>Wind Direction (°)</th>
+    <th>Pressure (hPa)</th>
+  </tr>
+  </thead>
+  <tbody>
+  #{list items:_station.readings, as:'reading'}
+  <tr>
+    <td>
+      ${reading.code}
+    </td>
+    <td>
+      ${reading.temperature}
+    </td>
+    <td>
+      ${reading.windSpeed}
+    </td>
+    <td>
+      ${reading.windDirection}
+    </td>
+    <td>
+      ${reading.pressure}
+    </td>
+  </tr>
+  #{/list}
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'WeatherTop' /}
+
+#{welcomemenu id:"start"/}
+
+<section class="ui container">
+  <div class="ui two column middle aligned grid">
+    <div class="stretched row">
+      <div class="left floated centre aligned column">
+        <img class="ui fluid image" src="/public/images/pexels-andrew-neel-3178798.jpg">
+      </div>
+      <div class="right floated centre aligned column">
+        <div class="ui center aligned basic segment">
+          <h1 class="ui header">
+            Welcome to<br>WeatherTop
+          </h1>
+          <p>
+            <span class="ui large text">The <strong>WeatherTop</strong> web app links to your <strong>WeatherTop&nbsp;1000™</strong> modular weather station,<br>allowing you to access your readings from anywhere.</span>
+          </p>
+          <p>
+            <span class="ui large text">Multiple weather stations can be linked to your <strong>WeatherTop</strong> account, so you can track the weather<br>in a number of locations.</span>
+          </p>
+          <p>
+            <span class="ui large text">Existing user? Please <strong><a href="/login">log in</a></strong>.</span>
+          </p>
+          <p>
+            <span class="ui large text">New user? Please <strong><a href="/signup">sign up</a></strong>.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

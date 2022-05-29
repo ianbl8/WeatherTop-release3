@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+<section class="ui segment">
+  <h1 class="ui header">
+    Station list
+  </h1>
+  #{list items:stations, as:'station'}
+  <section class="ui raised segment">
+    <h2 class="ui header">
+      ${station.name}
+    </h2>
+    <a href="/stations/${station.id}" class="positive ui icon button"><i class="icon folder open"></i></a>
+  </section>
+  #{/list}
+  #{addstation /}
+</section>
